@@ -40,20 +40,32 @@
 # qimmat_mahsulotlar(mahsulotlar)
 
 
-def natijalar(baholar):
-    for ism in baholar:
-        bahosi = baholar[ism]
-        if bahosi >= 60:
-            print(ism, "-", bahosi, "-", "O'tdi")
-        else:
-            print(ism, "-", bahosi, "-", "Yiqildi")
-            
-baholar = {
-    "Ali": 78,
-    "Vali": 45,
-    "Hasan": 91,
-    "Husan": 56,
-    "Sardor": 67
-}
+# def natijalar(baholar):
+#     for ism in baholar:
+#         bahosi = baholar[ism]
+#         if bahosi >= 60:
+#             print(ism, "-", bahosi, "-", "O'tdi")
+#         else:
+#             print(ism, "-", bahosi, "-", "Yiqildi")
 
-natijalar(baholar)
+# baholar = {
+#     "Ali": 78,
+#     "Vali": 45,
+#     "Hasan": 91,
+#     "Husan": 56,
+#     "Sardor": 67
+# }
+
+# natijalar(baholar)
+
+
+def takrorlanmas_sonlar(sonlar):
+    yangi_list = []
+    for son in sonlar:
+        if son not in yangi_list:
+            yangi_list.append(son)
+    return yangi_list
+
+
+sonlar = [2, 5, 2, 8, 5, 9, 2, 8, 10, 5]
+print(takrorlanmas_sonlar(sonlar))

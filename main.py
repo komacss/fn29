@@ -71,17 +71,32 @@
 # print(takrorlanmas_sonlar(sonlar))
 
 
-def kontakt_qidir(kontaktlar, ism):
-    if ism in kontaktlar:
-        print(kontaktlar[ism])
-    else:
-        print("Bunday kontakt topilmadi")
+# def kontakt_qidir(kontaktlar, ism):
+#     if ism in kontaktlar:
+#         print(kontaktlar[ism])
+#     else:
+#         print("Bunday kontakt topilmadi")
 
 
-kontaktlar = {
-    "Ali": "901234567",
-    "Vali": "911112233"
-}
+# kontaktlar = {
+#     "Ali": "901234567",
+#     "Vali": "911112233"
+# }
 
-ism = input("Ism kiriting: ")
-kontakt_qidir(kontaktlar, ism)
+# ism = input("Ism kiriting: ")
+# kontakt_qidir(kontaktlar, ism)
+
+def son_topish(sirli_son):
+    while True:
+        son = int(input("Son kiriting: "))
+        if son > sirli_son:
+            print("Kichikroq son kiriting")
+        elif son < sirli_son:
+            print("Kattaroq son kiriting")
+        else:
+            print("Tabriklayman!")
+            break
+
+
+sirli_son = 37
+son_topish(sirli_son)

@@ -101,23 +101,65 @@
 # sirli_son = 37
 # son_topish(sirli_son)
 
-def savat_hisobla(mahsulotlar):
+# def savat_hisobla(mahsulotlar):
+#     jami = 0
+#     while True:
+#         nomi = input("Mahsulot kiriting: ")
+#         if nomi == "stop":
+#             break
+#         if nomi in mahsulotlar:
+#             jami = jami + mahsulotlar[nomi]
+#     print("Umumiy narx:", jami)
+
+
+# mahsulotlar = {
+#     "non": 4000,
+#     "sut": 10000,
+#     "shakar": 14000,
+#     "guruch": 16000,
+#     "yog'": 18000
+# }
+
+# savat_hisobla(mahsulotlar)
+
+def statistika(oquvchilar):
+    otganlar = 0
+    yiqilganlar = 0
+    eng_yuqori = eng_past = None
     jami = 0
-    while True:
-        nomi = input("Mahsulot kiriting: ")
-        if nomi == "stop":
-            break
-        if nomi in mahsulotlar:
-            jami = jami + mahsulotlar[nomi]
-    print("Umumiy narx:", jami)
+    soni = 0
+
+    for ism in oquvchilar:
+        bali = oquvchilar[ism]
+        soni = soni + 1
+        jami = jami + bali
+
+        if bali >= 60:
+            otganlar = otganlar + 1
+        else:
+            yiqilganlar = yiqilganlar + 1
+
+        if eng_yuqori is None or bali > eng_yuqori:
+            eng_yuqori = bali
+        if eng_past is None or bali < eng_past:
+            eng_past = bali
+
+    ortacha = jami / soni
+
+    print("O'tganlar:", otganlar)
+    print("Yiqilganlar:", yiqilganlar)
+    print("Eng yuqori ball:", eng_yuqori)
+    print("Eng past ball:", eng_past)
+    print("O'rtacha ball:", ortacha)
 
 
-mahsulotlar = {
-    "non": 4000,
-    "sut": 10000,
-    "shakar": 14000,
-    "guruch": 16000,
-    "yog'": 18000
+oquvchilar = {
+    "Ali": 85,
+    "Vali": 45,
+    "Hasan": 72,
+    "Husan": 58,
+    "Sardor": 91,
+    "Jasur": 63
 }
 
-savat_hisobla(mahsulotlar)
+statistika(oquvchilar)

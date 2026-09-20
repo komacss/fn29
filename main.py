@@ -59,13 +59,29 @@
 # natijalar(baholar)
 
 
-def takrorlanmas_sonlar(sonlar):
-    yangi_list = []
-    for son in sonlar:
-        if son not in yangi_list:
-            yangi_list.append(son)
-    return yangi_list
+# def takrorlanmas_sonlar(sonlar):
+#     yangi_list = []
+#     for son in sonlar:
+#         if son not in yangi_list:
+#             yangi_list.append(son)
+#     return yangi_list
 
 
-sonlar = [2, 5, 2, 8, 5, 9, 2, 8, 10, 5]
-print(takrorlanmas_sonlar(sonlar))
+# sonlar = [2, 5, 2, 8, 5, 9, 2, 8, 10, 5]
+# print(takrorlanmas_sonlar(sonlar))
+
+
+def kontakt_qidir(kontaktlar, ism):
+    if ism in kontaktlar:
+        print(kontaktlar[ism])
+    else:
+        print("Bunday kontakt topilmadi")
+
+
+kontaktlar = {
+    "Ali": "901234567",
+    "Vali": "911112233"
+}
+
+ism = input("Ism kiriting: ")
+kontakt_qidir(kontaktlar, ism)

@@ -86,17 +86,38 @@
 # ism = input("Ism kiriting: ")
 # kontakt_qidir(kontaktlar, ism)
 
-def son_topish(sirli_son):
+# def son_topish(sirli_son):
+#     while True:
+#         son = int(input("Son kiriting: "))
+#         if son > sirli_son:
+#             print("Kichikroq son kiriting")
+#         elif son < sirli_son:
+#             print("Kattaroq son kiriting")
+#         else:
+#             print("Tabriklayman!")
+#             break
+
+
+# sirli_son = 37
+# son_topish(sirli_son)
+
+def savat_hisobla(mahsulotlar):
+    jami = 0
     while True:
-        son = int(input("Son kiriting: "))
-        if son > sirli_son:
-            print("Kichikroq son kiriting")
-        elif son < sirli_son:
-            print("Kattaroq son kiriting")
-        else:
-            print("Tabriklayman!")
+        nomi = input("Mahsulot kiriting: ")
+        if nomi == "stop":
             break
+        if nomi in mahsulotlar:
+            jami = jami + mahsulotlar[nomi]
+    print("Umumiy narx:", jami)
 
 
-sirli_son = 37
-son_topish(sirli_son)
+mahsulotlar = {
+    "non": 4000,
+    "sut": 10000,
+    "shakar": 14000,
+    "guruch": 16000,
+    "yog'": 18000
+}
+
+savat_hisobla(mahsulotlar)

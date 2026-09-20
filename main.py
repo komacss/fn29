@@ -122,44 +122,104 @@
 
 # savat_hisobla(mahsulotlar)
 
-def statistika(oquvchilar):
-    otganlar = 0
-    yiqilganlar = 0
-    eng_yuqori = eng_past = None
+# def statistika(oquvchilar):
+#     otganlar = 0
+#     yiqilganlar = 0
+#     eng_yuqori = eng_past = None
+#     jami = 0
+#     soni = 0
+
+#     for ism in oquvchilar:
+#         bali = oquvchilar[ism]
+#         soni = soni + 1
+#         jami = jami + bali
+
+#         if bali >= 60:
+#             otganlar = otganlar + 1
+#         else:
+#             yiqilganlar = yiqilganlar + 1
+
+#         if eng_yuqori is None or bali > eng_yuqori:
+#             eng_yuqori = bali
+#         if eng_past is None or bali < eng_past:
+#             eng_past = bali
+
+#     ortacha = jami / soni
+
+#     print("O'tganlar:", otganlar)
+#     print("Yiqilganlar:", yiqilganlar)
+#     print("Eng yuqori ball:", eng_yuqori)
+#     print("Eng past ball:", eng_past)
+#     print("O'rtacha ball:", ortacha)
+
+
+# oquvchilar = {
+#     "Ali": 85,
+#     "Vali": 45,
+#     "Hasan": 72,
+#     "Husan": 58,
+#     "Sardor": 91,
+#     "Jasur": 63
+# }
+
+# statistika(oquvchilar)
+
+
+def mahsulotlarni_korsatish(mahsulotlar):
+    for nomi in mahsulotlar:
+        print(nomi, "-", mahsulotlar[nomi])
+
+
+def savatga_qoshish(mahsulotlar, savat):
+    nomi = input("Mahsulot nomini kiriting: ")
+    if nomi in mahsulotlar:
+        savat.append(nomi)
+        print("Qo'shildi!")
+    else:
+        print("Bunday mahsulot yo'q")
+    return savat
+
+
+def savatni_korsatish(savat):
+    for nomi in savat:
+        print(nomi)
+
+
+def umumiy_narx(mahsulotlar, savat):
     jami = 0
-    soni = 0
-
-    for ism in oquvchilar:
-        bali = oquvchilar[ism]
-        soni = soni + 1
-        jami = jami + bali
-
-        if bali >= 60:
-            otganlar = otganlar + 1
-        else:
-            yiqilganlar = yiqilganlar + 1
-
-        if eng_yuqori is None or bali > eng_yuqori:
-            eng_yuqori = bali
-        if eng_past is None or bali < eng_past:
-            eng_past = bali
-
-    ortacha = jami / soni
-
-    print("O'tganlar:", otganlar)
-    print("Yiqilganlar:", yiqilganlar)
-    print("Eng yuqori ball:", eng_yuqori)
-    print("Eng past ball:", eng_past)
-    print("O'rtacha ball:", ortacha)
+    for nomi in savat:
+        jami += mahsulotlar[nomi]
+    return jami
 
 
-oquvchilar = {
-    "Ali": 85,
-    "Vali": 45,
-    "Hasan": 72,
-    "Husan": 58,
-    "Sardor": 91,
-    "Jasur": 63
+mahsulotlar = {
+    "olma": 12000,
+    "banan": 18000,
+    "apelsin": 15000,
+    "uzum": 20000,
+    "anor": 25000
 }
 
-statistika(oquvchilar)
+savat = []
+
+while True:
+    print("1. Mahsulotlarni ko'rish")
+    print("2. Savatga mahsulot qo'shish")
+    print("3. Savatni ko'rish")
+    print("4. Umumiy narxni ko'rish")
+    print("5. Dasturdan chiqish")
+
+    tanlov = input("Tanlovni kiriting: ")
+
+    if tanlov == "1":
+        mahsulotlarni_korsatish(mahsulotlar)
+    elif tanlov == "2":
+        savat = savatga_qoshish(mahsulotlar, savat)
+    elif tanlov == "3":
+        savatni_korsatish(savat)
+    elif tanlov == "4":
+        print("Umumiy narx:", umumiy_narx(mahsulotlar, savat))
+    elif tanlov == "5":
+        break
+    else:
+        print("Noto'g'ri tanlov")

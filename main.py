@@ -23,3 +23,18 @@ for son in matn.split():
     sonlar.append(int(son))
 
 min_max(sonlar)
+
+
+def qimmat_mahsulotlar(a):
+    for nomi, narx in a.items():
+        if narx > 15000:
+            print(nomi, "-", narx)
+mahsulotlar = {
+    "non": 4000,
+    "sut": 10000,
+    "shakar": 14000,
+    "yog'": 18000,
+    "guruch": 16000
+}
+
+qimmat_mahsulotlar(mahsulotlar)
